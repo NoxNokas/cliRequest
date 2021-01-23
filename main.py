@@ -1,11 +1,4 @@
-# main.py
-import click
-
-
-@click.command()
-def main():
-    print("I'm a beautiful CLI ✨")
-
+from cli_Request import main
 
 if __name__ == "__main__":
     main()

@@ -12,8 +12,10 @@ def main():
 
     # Получаем список номеров строк
     try:
-        lines = QueryCSV.rg_find_lines_number(Config.PATH, Config.COLUMN, Config.QUERY)
-
+        if Config.REGEX:
+            lines = QueryCSV.rg_find_lines_number(Config.PATH, Config.COLUMN, Config.REGEX)
+        else:
+            lines = QueryCSV.find_lines_number(Config.PATH, Config.COLUMN, Config.QUERY)
         for index in lines:
             print(index)
 

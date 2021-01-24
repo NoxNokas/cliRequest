@@ -16,7 +16,7 @@ class Config:
         args = p.parse_args()
 
         if args.path is None:
-            raise FileExistsError("Не указан путь до файла")
+            raise KeyError("Не указан путь до файла")
         cls.PATH = args.path
 
         if args.query is None:

@@ -1,7 +1,7 @@
 class QueryCSV:
 
-    @staticmethod
-    def find_lines_number(path, query) -> list:
+    @classmethod
+    def find_lines_number(cls, path, query) -> list:
         """
 
         Функция для поиска вхождения указанной
@@ -11,7 +11,7 @@ class QueryCSV:
         :param query: запрос к v файлу
         :return: возвращает  массив состоящий из номеров строк
         """
-        print("path: ", path, "query: ", query)
+
         lines = list()  # Номера прошедших валидацию строк
         index = 1
         with open(path) as csv_file:

@@ -27,7 +27,12 @@ $ poetry shell
 $ python main.py -p <путь до файла> -c <наименование колонки> -q <регулярное выражение>
 ```
 
-Пример:
+Пример regex:
 ```shell script
-$ python main.py -p test.csv -c first -q [A][l][b][e][r][t]
+$ python main.py -p test.csv -c first -r [A][l][b][e][r][t]
+```
+
+Пример query:
+```shell script
+$ python main.py -p test.csv -c first -q Albert
 ```

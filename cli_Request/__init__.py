@@ -12,8 +12,11 @@ def main():
 
     # Получаем список номеров строк
     try:
-        lines = QueryCSV.find_lines_number(Config.PATH, Config.COLUMN, Config.QUERY)
-        print(lines)
+        lines = QueryCSV.rg_find_lines_number(Config.PATH, Config.COLUMN, Config.QUERY)
+
+        for index in lines:
+            print(index)
+
     except KeyError:
         logger.error("column does not exist")
     except Exception as exc:

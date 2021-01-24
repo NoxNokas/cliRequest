@@ -43,7 +43,7 @@ class QueryCSV:
         chunksize = 10 ** 3
         df = pd.read_csv(path, chunksize=chunksize)
 
-        # regex = re.compile('[A][l][b][e][r][t]')
+        # regex = re.compile('[A][l][b][e][r][t]')       [A][l]+[\w]+[a]
         regex = re.compile(query)
 
         for chunk in df:
@@ -51,8 +51,7 @@ class QueryCSV:
             a = np.array(d, dtype=str).ravel().tolist()
             a = list(set(a))
 
-            for key in a:
-                temp_str = chunk[key == chunk[column]].index.tolist()
-                if len(temp_str):
-                    for i in temp_str:
-                        yield i
+            temp_str = chunk[chunk[column].isin(a)].index.tolist()
+            if len(temp_str):
+                for i in temp_str:
+                    yield i
